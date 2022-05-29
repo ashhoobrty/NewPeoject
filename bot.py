@@ -1,6 +1,6 @@
 import os
 from os import environ
-from pyrogram import Client
+from pyrogram import Client, filters
 
 API_ID = environ.get('API_ID')
 API_HASH = environ.get('API_HASH')
