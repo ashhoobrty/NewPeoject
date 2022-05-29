@@ -19,7 +19,7 @@ PHOTO = ["https://telegra.ph/file/a977da35cd09e365f985d.jpg", "https://telegra.p
 async def start(bot, message):
   await message.reply_photo(
     photo=random.choice(PHOTO),
-    text=f"Hello {message.from_user.first_name}, I Am A Powerful Bot devloped by Himanshu Rastogi."
+    caption=f"Hello {message.from_user.first_name}, I Am A Powerful Bot devloped by Himanshu Rastogi."
   )
   
 bot.run()
