@@ -27,7 +27,29 @@ async def start(bot, message):
   await message.reply(
     text="Hello there"
   )
-  
+
+@bot.on_message(filters.command('send'))
+async def send(bot, message):
+    if len(message.command) == 1:
+        return await message.reply('Give me a chat id, whom to send message.')
+    chat = message.command[1]
+    try:
+        chat = int(chat)
+    except:
+        chat = chat
+    if len(message.command) == 2:
+        return await message.reply('Give me a message.')
+    msg = message.command[2]
+    try: 
+        msg = int(msg)
+    except:
+        msg=msg
+    try:
+        await bot.send_message(chat, msg)
+        await message.reply(f'Successfully sent {msg} to {chat}.')
+    except Exception as e:
+        await message.reply(f'Error - {e}')
+        
 @bot.on_message(filters.regex("hello"))
 async def start(bot, message):
   await message.reply(
