@@ -3,9 +3,9 @@ import random
 from os import environ
 from pyrogram import Client, filters
 
-API_ID = environ.get('API_ID')
-API_HASH = environ.get('API_HASH')
-BOT_TOKEN = environ.get('BOT_TOKEN')
+API_ID = "11920851"
+API_HASH = "8a11554cddfe55b6f19244267b6a5c64"
+BOT_TOKEN = "5312381495:AAF_ete6uFJcXHYBUiwod72JbispXEdC74w"
 
 bot = Client('New Peoject',
              api_id=API_ID,
@@ -20,6 +20,12 @@ async def start(bot, message):
   await message.reply_photo(
     photo=random.choice(PHOTO),
     caption=f"Hello {message.from_user.first_name}, I Am A Powerful Bot devloped by Himanshu Rastogi."
+  )
+  
+@bot.on_message(filters.regex("start"))
+async def start(bot, message):
+  await message.reply(
+    text="Hello there"
   )
   
 bot.run()
