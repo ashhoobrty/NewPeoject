@@ -36,7 +36,7 @@ async def send(bot, message):
     try:
         chat = int(chat)
     except:
-        chat = chat
+        chat = message.reply_to_message_id
     if len(message.command) == 2:
         return await message.reply('Give me a message.')
     msg = message.command[2]
