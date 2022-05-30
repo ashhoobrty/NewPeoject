@@ -3,9 +3,9 @@ import random
 from os import environ
 from pyrogram import Client, filters
 
-API_ID = "11920851"
-API_HASH = "8a11554cddfe55b6f19244267b6a5c64"
-BOT_TOKEN = "5312381495:AAF_ete6uFJcXHYBUiwod72JbispXEdC74w"
+API_ID = environ.get('API_ID')
+API_HASH = environ.get('API_HASH')
+BOT_TOKEN = environ.get('BOT_TOKEN')
 
 bot = Client('New Peoject',
              api_id=API_ID,
@@ -26,6 +26,12 @@ async def start(bot, message):
 async def start(bot, message):
   await message.reply(
     text="Hello there"
+  )
+  
+@bot.on_message(filters.regex("hello"))
+async def start(bot, message):
+  await message.reply(
+    text="Hii"
   )
   
 bot.run()
