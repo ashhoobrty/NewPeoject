@@ -59,5 +59,20 @@ async def start(bot, message):
 @bot.on_message(filters.private)
 async def hello(client, message):
     await message.reply("Hello from Pyrogram!")
+    
+@bot.on_message(filters.command("info"))
+async def info(bot, message):
+  if len(message.command) == 1:
+    return await message.reply("Give me a user id")
+  chat = message.command[1]
+  try:
+    chat = int(chat)
+  except:
+    chat = chat
+  try:
+      await message.get_users(chat)
+  except Exeption as e:
+    await message.reply(f"#Error - {e}")
   
+ 
 bot.run()
