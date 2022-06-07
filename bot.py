@@ -80,5 +80,6 @@ CHAT = "-1001553569882"
 async def document(bot, message):
   await message.edit_text(
     text="hello"
+  )
  
 bot.run()
