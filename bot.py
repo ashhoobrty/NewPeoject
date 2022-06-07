@@ -76,7 +76,7 @@ async def info(bot, message):
     
 CHAT = "-1001553569882"
     
-@bot.on_message(filters.command('start') & filters.chat(CHAT) & (filters.document))
+@bot.on_message(filters.command('hi') & filters.chat(CHAT) & (filters.document))
 async def document(bot, message):
   await message.reply(
     text="hello"
