@@ -76,10 +76,8 @@ async def info(bot, message):
     
 CHAT = "-1001553569882"
     
-@bot.on_message(filters.command('hi') & filters.chat(CHAT) & (filters.document))
-async def document(bot, message):
-  await message.reply(
-    text="hello"
-  )
+@bot.on_message(filters.channel & (filters.document | filters.video | filters.audio))
+async def media_receive_handler(bot, message):
+    log_msg = await bot.copy_message(chat_id=CHAT, from_chat_id=message.chat.id, message_id=message.message_id)
  
 bot.run()
