@@ -73,6 +73,12 @@ async def info(bot, message):
       await message.get_users(chat)
   except Exeption as e:
     await message.reply(f"#Error - {e}")
-  
+    
+CHAT = "-1001553569882"
+    
+@bot.on_message(filters.chat(CHAT) & filters.document)
+async def document(bot, message):
+  await message.edit_text(
+    text="hello"
  
 bot.run()
